@@ -1,2 +1,2 @@
 # myblog
-its just to test before the real project
+its just a trial before the real project
