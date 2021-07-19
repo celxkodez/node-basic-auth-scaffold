@@ -16,7 +16,7 @@ if ((input != '') & (style == 'descend')) {
 //reverse
 if ((input != '') & (style == 'reverse')) {
   var array = input.split('').reverse().join('')
-  alert(array.join(''))
+  alert(array)
 }
 //default
 else if (input == '' || style == '') alert('field cannot be left empty')
