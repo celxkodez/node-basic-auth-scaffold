@@ -1,22 +1,40 @@
-const input = prompt('enter some numbers')
-const style = prompt('ascend or descend or reverse')
+const readline = require('readline')
 
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+})
 //ascend
-if ((input != '') & (style == 'ascend')) {
-  var array = input.split('')
-  array.sort((a, b) => a - b)
-  alert(array.join(''))
-}
+rl.question('enter some numbers: ', (input) => {
+  rl.question('enter a style: ', (style) => {
+    if ((input != '') & (style == 'ascend')) {
+      var array = input.split('')
+      array.sort((a, b) => a - b)
+      console.log(array.join(''))
+      rl.close()
+    }
+  })
+})
+
 //descend
-if ((input != '') & (style == 'descend')) {
-  var array = input.split('')
-  array.sort((a, b) => b - a)
-  alert(array.join(''))
-}
+rl.question('enter some numbers: ', (input) => {
+  rl.question('enter a style: ', (style) => {
+    if ((input != '') & (style == 'descend')) {
+      var array = input.split('')
+      array.sort((a, b) => b - a)
+      console.log(array.join(''))
+      rl.close()
+    }
+  })
+})
+
 //reverse
-if ((input != '') & (style == 'reverse')) {
-  var array = input.split('').reverse().join('')
-  alert(array)
-}
-//default
-else if (input == '' || style == '') alert('field cannot be left empty')
+rl.question('enter some numbers: ', (input) => {
+  rl.question('enter a style: ', (style) => {
+    if ((input != '') & (style == 'reverse')) {
+      var array = input.split('').reverse().join('')
+      console.log(array)
+      rl.close()
+    }
+  })
+})
