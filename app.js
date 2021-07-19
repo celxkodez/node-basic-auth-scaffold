@@ -13,24 +13,14 @@ rl.question('enter some numbers: ', (input) => {
       console.log(array.join(''))
       rl.close()
     }
-  })
-})
-
-//descend
-rl.question('enter some numbers: ', (input) => {
-  rl.question('enter a style: ', (style) => {
+    //descend
     if ((input != '') & (style == 'descend')) {
       var array = input.split('')
       array.sort((a, b) => b - a)
       console.log(array.join(''))
       rl.close()
     }
-  })
-})
-
-//reverse
-rl.question('enter some numbers: ', (input) => {
-  rl.question('enter a style: ', (style) => {
+    //reverse
     if ((input != '') & (style == 'reverse')) {
       var array = input.split('').reverse().join('')
       console.log(array)
