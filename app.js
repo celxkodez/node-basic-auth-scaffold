@@ -33,7 +33,7 @@ app.use('/', router)
 
 //setting up passport
 app.use(passport.initialize())
-app.use(passport.session()) 
+app.use(passport.session())
 
 passport.serializeUser((user, done) => {
   done(null, user)
@@ -157,5 +157,5 @@ app.post('/signup', async function (req, res) {
 })
 
 app.listen(PORT, () => {
-  console.log(`> server running on http://192.168.88.47:${PORT}`)
+  console.log(`> server running on http://localhost:${PORT}`)
 })
