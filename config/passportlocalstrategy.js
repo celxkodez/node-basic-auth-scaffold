@@ -5,22 +5,19 @@ const { Pool, Client } = require('pg')
 const pool = new Pool({
     user: process.env.PGUSER || 'postgres',
     host: process.env.PGHOST || 'localhost',
-    database: process.env.PGDATABASE || 'my_blog',
-    password: process.env.PGPASSWORD || '1111',
-    // password: '',
+    database: process.env.PGDATABASE || 'my_blog', //Your db Here too
+    password: process.env.PGPASSWORD || '1111', //Insert Your Password Here
     port: '5432',
 })
 
 module.exports = new localstrategy(
     { passReqToCallback: true },
     (req, username, password, done) => {
-        console.log('username '+username)
         loginAttempt()
         async function loginAttempt() {
             const client = await pool.connect()
             try {
                 await client.query('BEGIN')
-                console.log('username '+username)
                 var currentAccountsData = JSON.stringify(
                     client.query(
                         'SELECT id, name, email, password FROM users WHERE email=$1',
@@ -31,7 +28,6 @@ module.exports = new localstrategy(
                             if (result.rows[0] == null) {
                                 return done(null, false)
                             } else {
-                                console.log('password'+password)
                                 bcrypt.compare(
                                     password,
                                     result.rows[0].password,
